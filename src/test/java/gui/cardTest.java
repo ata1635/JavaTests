@@ -11,14 +11,14 @@ public class cardTest {
     @Nested
     class CardValueTest {
         @Test
-        @DisplayName("Test if Ace has value 11")
+        @DisplayName("Value is 11 when card is Ace")
         public void aceTest() {
             Card ace = new Card("A", "H");
             assertThat(ace.getValue()).isEqualTo(11);
         }
 
         @Test
-        @DisplayName("Test if Jack, Queen, King all have value 10")
+        @DisplayName("Value is 10 when card is Jack, Queen or King")
         public void jackTest() {
             Card jack = new Card("J", "H");
             Card queen = new Card("Q", "H");
@@ -27,6 +27,12 @@ public class cardTest {
             assertThat(queen.getValue()).isEqualTo(10);
             assertThat(king.getValue()).isEqualTo(10);
         }
+    }
 
+    @Test
+    @DisplayName("Is image path to Five of Clubs correct?")
+    void getImagePathTest() {
+        Card club5 = new Card("5", "C");
+        assertThat(club5.getImagePath()).isEqualTo("/cards/5-C.png");
     }
 }
